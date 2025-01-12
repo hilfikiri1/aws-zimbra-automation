@@ -1,0 +1,6 @@
+ansible.log
+log/*
+logs/*
+files/ZI-*.tar.gz
+terraform.tfstate
+terraform_outputs.json

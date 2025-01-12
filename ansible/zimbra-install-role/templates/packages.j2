@@ -1,0 +1,20 @@
+USE_ZIMBRA_PACKAGE_SERVER="yes"
+INSTALL_PACKAGES="zimbra-core \
+{% if zimbra_ldap == 'y' %}zimbra-ldap zimbra-ldap-patch \
+{% endif %}
+{% if zimbra_logger == 'y' %}zimbra-logger \
+{% endif %}
+{% if zimbra_mta == 'y' %}zimbra-mta zimbra-mta-patch \
+{% endif %}
+{% if zimbra_dnscache == 'y' %}zimbra-dnscache \
+{% endif %}
+zimbra-snmp \
+{% if zimbra_store == 'y' %}zimbra-store zimbra-patch \
+{% endif %}
+{% if zimbra_spell == 'y' %}zimbra-spell zimbra-apache \
+{% endif %}
+{% if zimbra_memcached == 'y' %}zimbra-memcached \
+{% endif %}
+{% if zimbra_proxy == 'y' %}zimbra-proxy zimbra-proxy-patch \
+{% endif %}
+"

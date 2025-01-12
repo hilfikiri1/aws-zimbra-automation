@@ -1,0 +1,9 @@
+zimbra_download_url: https://files.zimbra.com/downloads/8.8.15_GA/zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954.tgz
+zimbra_256sum_file: 69b5803c923143015955a611109a144a09697ec9d1ee6f2df41ee561c9ab8c34
+zimbra_file: zcs-8.8.15_GA_4179.UBUNTU20_64.20211118033954
+
+zimbra_main_password: efwkmn2341da
+hostname: "{{ inventory_hostname }}"
+mta_hostname: 'mta.podolskyi.pl'
+ldap_hostname: 'proxy.podolskyi.pl'
+default_domain: 'podolskyi.pl'

@@ -1,0 +1,16 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: "Remove existing /etc/hosts file"
+      file:
+        path: /etc/hosts
+        state: absent
+
+    - name: "Deploy new /etc/hosts from template"
+      template:
+        src: hosts.j2
+        dest: /etc/hosts
+
+    - name: "Update system hostname"
+      hostname:
+        name: "{{ inventory_hostname_short }}"

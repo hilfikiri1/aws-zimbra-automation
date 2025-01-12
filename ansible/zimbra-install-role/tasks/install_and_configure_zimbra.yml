@@ -1,0 +1,41 @@
+- name: Download Zimbra tar file with checksum url
+  get_url:
+    url: "{{ zimbra_download_url }}"
+    dest: /root
+    checksum: sha256:{{ zimbra_256sum_file }}  
+  tags: download_tar
+
+
+- name: Untar files on remote server
+  unarchive:
+    remote_src: yes
+    src: "/root/{{ zimbra_file }}.tgz"
+    dest: "/root/"
+
+- name: Upload packages file
+  template:
+    src: packages.j2
+    dest: /tmp/packages
+    owner: root
+    group: root
+    mode: '0644'
+  tags: upload_package
+
+- name: Install Zimbra Software
+  shell: /root/{{ zimbra_file }}/install.sh -s /tmp/packages
+  args:
+    chdir: /root/{{ zimbra_file }}/
+  tags: install_zimbra
+
+- name: Upload configuration file
+  template:
+    src: configuration.conf.j2
+    dest: /tmp/configuration.conf
+    owner: zimbra
+    mode: '0644'
+  tags: upload_config
+
+- name: Configure Zimbra Software
+  command: /opt/zimbra/libexec/zmsetup.pl -c /tmp/configuration.conf
+  throttle: 1
+  tags: config_zimbra

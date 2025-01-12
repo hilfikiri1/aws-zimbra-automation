@@ -1,0 +1,6 @@
+127.0.0.1 localhost.localdomain localhost
+
+{% for host in groups['cluster'] %}
+{{ hostvars[host].ansible_all_ipv4_addresses | ipaddr('private') | first }}  {{ hostvars[host].inventory_hostname }}  {{ hostvars[host].inventory_hostname_short }}
+{% endfor %}
+

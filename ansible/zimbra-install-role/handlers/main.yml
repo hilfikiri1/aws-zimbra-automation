@@ -1,0 +1,4 @@
+- name: restart zimbra
+  service:
+    name: zimbra
+    state: restarted
