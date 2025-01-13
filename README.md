@@ -45,3 +45,8 @@ The infrastructure is provisioned using **Terraform**, and the configuration is 
 5. **Run the Jenkins Pipeline**:  
    Set up Jenkins and link it to the repository to trigger the pipeline automatically or manually.
 
+## Result 
+
+![image](https://github.com/user-attachments/assets/11988ac2-f56a-4271-a223-6c43460c8b5f)
+![image](https://github.com/user-attachments/assets/1c8de316-a365-44b3-a032-45e3fe497027)
+
